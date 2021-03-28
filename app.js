@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const webpush = require("web-push");
 var mysql = require("mysql");
+const cors = require('cors');
+app.use(cors());
 
 // var con = mysql.createConnection({
 //   host: "https://intellizetech.in",
