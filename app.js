@@ -37,8 +37,8 @@ app.post("/", (req, res) => {
   var sub = req;
 
   webpush.setVapidDetails("mailto:admin@ponnmaravathy.in", publicKey, privateKey);
-  res.status(201).json({});
   webpush.sendNotification(sub, JSON.stringify(payLoad)).catch(err => console.log(err));
+  res.status(201).json({});
 
   // res.send(req);
 });
