@@ -39,14 +39,15 @@ vibrate: [100,50,100]
 };
 app.post("/", (req, res) => {
     var sub = req;
+    webpush.setVapidDetails('admin@ponnmaravathy.in', publicKey, privateKey)
     webpush.sendNotification(sub, JSON.stringify(payLoad));
 
-  res.send(sub);
+  // res.send(sub);
 });
-app.get("/", (req, res) => {
-  var sub = req;
-  res.send('welcome');
+// app.get("/", (req, res) => {
+//   var sub = req;
+//   res.send('welcome');
 
-res.send(sub);
-});
+// res.send(sub);
+// });
 app.listen(8080);
