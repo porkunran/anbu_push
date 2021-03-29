@@ -35,7 +35,7 @@ const payLoad = {
 };
 app.post("/", (req, res) => {
   var sub = req;
-  webpush.setVapidDetails("admin@ponnmaravathy.in", publicKey, privateKey);
+  webpush.setVapidDetails("mailto:admin@ponnmaravathy.in", publicKey, privateKey);
   webpush.sendNotification(sub, JSON.stringify(payLoad));
 
   // res.send(sub);
