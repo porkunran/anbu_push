@@ -42,7 +42,7 @@ app.post("/", (req, res) => {
     privateKey
   );
   webpush
-    .sendNotification(sub, JSON.stringify(payLoad))
+    .sendNotification(JSON.stringify(sub), JSON.stringify(payLoad))
     .catch((err) => console.log(err));
   res.status(201).json({});
 
