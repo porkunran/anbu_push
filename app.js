@@ -43,4 +43,10 @@ app.post("/", (req, res) => {
 
   res.send(sub);
 });
+app.get("/", (req, res) => {
+  var sub = req;
+  res.send('welcome');
+
+res.send(sub);
+});
 app.listen();
