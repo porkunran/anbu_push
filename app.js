@@ -38,7 +38,7 @@ app.post("/", (req, res) => {
   webpush.setVapidDetails("mailto:admin@ponnmaravathy.in", publicKey, privateKey);
   webpush.sendNotification(sub, JSON.stringify(payLoad));
 
-  res.statusCode(200);
+  res.send(req);
 });
 // app.get("/", (req, res) => {
 //   var sub = req;
