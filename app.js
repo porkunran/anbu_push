@@ -3,7 +3,19 @@ const app = express();
 const webpush = require("web-push");
 var mysql = require("mysql");
 const cors = require('cors');
-app.use(cors());
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+app.use(cors(corsOpts));
 
 // var con = mysql.createConnection({
 //   host: "https://intellizetech.in",
@@ -31,4 +43,4 @@ app.post("/", (req, res) => {
 
   res.send(sub);
 });
-app.listen(3000);
+app.listen();
