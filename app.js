@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const webpush = require("web-push");
 var mysql = require("mysql");
+var error;
+var subValue;
 const cors = require("cors");
 const corsOpts = {
   origin: "*",
@@ -30,8 +32,8 @@ const payLoad = {
   notification: {
     data: { url: "https://ponnamaravathy.in/" },
     title: "Porkuran",
-    vibrate: [100, 50, 100],
-  },
+    vibrate: [100, 50, 100]
+  }
 };
 app.post("/", (req, res) => {
   var sub = req;
@@ -43,8 +45,13 @@ app.post("/", (req, res) => {
   );
   webpush
     .sendNotification(JSON.stringify(sub), JSON.stringify(payLoad))
-    .catch((err) => console.log(err));
-  res.status(201).json({});
+    .catch((err) => error = err);
+  res.status(201).json({error:error,
+    sub:sub,
+    subStringify:JSON.stringify(sub),
+    payload:payload,
+    payloadStringify:JSON.stringify(payLoad)
+  });
 
   // res.send(req);
 });
