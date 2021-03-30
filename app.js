@@ -48,9 +48,7 @@ app.post("/", (req, res) => {
     .catch((err) => error = err);
   res.status(201).json({error:error,
     sub:sub,
-    subStringify:JSON.stringify(sub),
-    payload:payload,
-    payloadStringify:JSON.stringify(payLoad)
+    payload:payload
   });
 
   // res.send(req);
