@@ -47,8 +47,7 @@ app.post("/", (req, res) => {
     .sendNotification(sub, JSON.stringify(payLoad))
     .catch((err) => error = err);
   res.status(201).json({error:error,
-    sub:sub,
-    payload:payload
+    sub:sub
   });
 
   // res.send(req);
