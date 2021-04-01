@@ -1,10 +1,12 @@
 const express = require("express");
-const app = express();
+
 const webpush = require("web-push");
-var mysql = require("mysql");
-var error;
-var subValue;
+const bodyParser = require('body-parser');
 const cors = require("cors");
+var error = {};
+var subValue= {};
+const app = express();
+
 const corsOpts = {
   origin: "*",
 
@@ -12,7 +14,11 @@ const corsOpts = {
 
   allowedHeaders: ["Content-Type"],
 };
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cors(corsOpts));
+
 
 // var con = mysql.createConnection({
 //   host: "https://intellizetech.in",
@@ -32,11 +38,15 @@ const payLoad = {
   notification: {
     data: { url: "https://ponnamaravathy.in/" },
     title: "Porkuran",
-    vibrate: [100, 50, 100]
+    vibrate: [100, 50, 100],
   }
 };
 app.post("/", (req, res) => {
-  var sub = req;
+ 
+console.log(req);
+  // res.status(201);
+
+  let sub = req.body;
 
   webpush.setVapidDetails(
     "mailto:admin@ponnmaravathy.in",
@@ -44,13 +54,11 @@ app.post("/", (req, res) => {
     privateKey
   );
   webpush
-    .sendNotification(sub, JSON.stringify(payLoad))
-    .catch((err) => error = err);
-  res.status(201).json({error:error,
-    sub:sub
-  });
+    .sendNotification(sub, payLoad)
+    .catch((err) => (error = err));
+  res.status(201).json({ error: error, sub: sub });
 
-  // res.send(req);
+  res.send(req);
 });
 
 app.get("/test", (req, res) => {
