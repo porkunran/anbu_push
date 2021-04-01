@@ -57,7 +57,7 @@ console.log(req);
   //   .sendNotification(sub, JSON.stringify(payLoad))
   //   .catch((err) => (error = err));
   // res.status(201).json({ error: error, sub: sub });
-  res.status(201).json({ sub: sub });
+  res.status(201).json({ sub: req });
   res.send(req);
 });
 
