@@ -48,16 +48,16 @@ console.log(req);
 
   let sub = req.body;
 
-  webpush.setVapidDetails(
-    "mailto:admin@ponnmaravathy.in",
-    publicKey,
-    privateKey
-  );
-  webpush
-    .sendNotification(sub, JSON.stringify(payLoad))
-    .catch((err) => (error = err));
-  res.status(201).json({ error: error, sub: sub });
-
+  // webpush.setVapidDetails(
+  //   "mailto:admin@ponnmaravathy.in",
+  //   publicKey,
+  //   privateKey
+  // );
+  // webpush
+  //   .sendNotification(sub, JSON.stringify(payLoad))
+  //   .catch((err) => (error = err));
+  // res.status(201).json({ error: error, sub: sub });
+  res.status(201).json({ sub: sub });
   res.send(req);
 });
 
