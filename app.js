@@ -61,34 +61,34 @@ console.log(req);
   res.send(req);
 });
 
-// app.get("/test", (req, res) => {
-//   var sub = {
-//     endpoint:
-//       "https://fcm.googleapis.com/fcm/send/f5NNOo09jjs:APA91bHs4GUw-5gjkWb4ZNRh3-w9rwm3P4-V2wDQ6fFSMCNtC6uK4ct8ayoQEeEzbY-ZaR8CziLobC3nVEARkKHOnTEWRJW5KaXjv-G521drC2CaWRE4Iul9-iwEI2-H4TWjJ7Ypvomh",
-//     expirationTime: null,
-//     keys: {
-//       auth: "ysrTI3awRrc_z0qT89aJaw",
-//       p256dh:
-//         "BBfqH-jmeJXu2poSIg8h-2M1GaxndBAGMSlnRH-MvXHx35MWCXWMi1u3IemGYjE9HXkpr67sVC9kcjtoT_KfBP4",
-//     },
-//   };
+app.get("/test", (req, res) => {
+  var sub = {
+    endpoint:
+      "https://fcm.googleapis.com/fcm/send/f5NNOo09jjs:APA91bHs4GUw-5gjkWb4ZNRh3-w9rwm3P4-V2wDQ6fFSMCNtC6uK4ct8ayoQEeEzbY-ZaR8CziLobC3nVEARkKHOnTEWRJW5KaXjv-G521drC2CaWRE4Iul9-iwEI2-H4TWjJ7Ypvomh",
+    expirationTime: null,
+    keys: {
+      auth: "ysrTI3awRrc_z0qT89aJaw",
+      p256dh:
+        "BBfqH-jmeJXu2poSIg8h-2M1GaxndBAGMSlnRH-MvXHx35MWCXWMi1u3IemGYjE9HXkpr67sVC9kcjtoT_KfBP4",
+    },
+  };
 
-//   webpush.setVapidDetails(
-//     "mailto:admin@ponnmaravathy.in",
-//     publicKey,
-//     privateKey
-//   );
-//   webpush
-//     .sendNotification(sub, JSON.stringify(payLoad))
-//     .catch((err) => console.log(err));
-//   res.send("test");
+  webpush.setVapidDetails(
+    "mailto:admin@ponnmaravathy.in",
+    publicKey,
+    privateKey
+  );
+  webpush
+    .sendNotification(sub, JSON.stringify(payLoad))
+    .catch((err) => console.log(err));
+  res.send("test");
 
-//   // res.send(req);
-// });
-// app.get("/", (req, res) => {
-//   var sub = req;
-//   res.send('welcome');
+  // res.send(req);
+});
+app.get("/", (req, res) => {
+  var sub = req;
+  res.send('welcome');
 
-// res.send(sub);
-// });
+res.send(sub);
+});
 app.listen(8080);
