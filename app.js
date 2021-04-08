@@ -100,10 +100,10 @@ console.log(req);
 
 //   // res.send(req);
 // });
-// app.get("/", (req, res) => {
-//   var sub = req;
-//   res.send('welcome');
+app.get("/", (req, res) => {
+  var sub = req;
+  res.send('welcome');
 
-// res.send(sub);
-// });
+
+});
 app.listen(80);
