@@ -106,4 +106,4 @@ app.get("/", (req, res) => {
 
 
 });
-app.listen(28571);
+app.listen(process.env.PORT || 28571);
